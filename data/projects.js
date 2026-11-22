@@ -71,7 +71,6 @@ const PROJECTS = [
     role: { fr: "Réalisation, écriture, montage, étalonnage.", en: "Director, writer, editor, colour grading." },
     image: "assets/tloo_visuel2.png",
     link: "https://drive.google.com/drive/u/0/folders/1zE0CYF4jrsnhl4jyaLoHPH8OpkT-wQGg",
-    video: "https://drive.google.com/drive/u/0/folders/1zE0CYF4jrsnhl4jyaLoHPH8OpkT-wQGg",
     relevance: 9
   },
   {
