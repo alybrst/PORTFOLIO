@@ -1,0 +1,152 @@
+/* =====================================================================
+   STYLE.CSS — sommaire
+   1. Couleurs & réglages (MODIFIER ICI)   5. Projets (filtres, catalogue)
+   2. Base & accessibilité                 6. Fiche projet (pop-up)
+   3. En-tête                              7. À propos & CV
+   4. Accueil                              8. Pied de page, responsive
+   ===================================================================== */
+
+/* ---------- 1. COULEURS & RÉGLAGES ---------- */
+:root{
+  --color-bg:#0b0b0d;          /* fond principal (sombre = écologique) */
+  --color-bg-alt:#141417;      /* fond des sections alternées */
+  --color-surface:#1d1d22;     /* cartes, pop-ups, panneaux */
+  --color-text:#FFDE21;        /* texte principal : jaune doré */
+  --color-text-soft:#EFE8D0;   /* texte long (lecture confortable) */
+  --color-muted:#9d9da3;       /* points inactifs, éléments discrets */
+  --color-accent:#C8102E;      /* rouge « rideau de cinéma » (décor) */
+  --color-border:#3b3b42;      /* bordures discrètes */
+  --color-on-primary:#000;     /* texte sur fond jaune (boutons) */
+  --color-overlay:rgba(0, 0, 0, 0.299); /* voile sur l'image d'accueil */
+
+  --hero-image:url("assets/backdrop.png"); /* IMAGE DE FOND DE L'ACCUEIL */
+
+  --font-title:Georgia,"Times New Roman",serif;
+  --font-body:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --header-h:64px; --gap:1.25rem; --radius:14px;
+}
+
+/* ---------- 2. BASE & ACCESSIBILITÉ ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--color-bg);color:var(--color-text);font:1.0625rem/1.65 var(--font-body)}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{font-family:var(--font-title);line-height:1.2;margin:0 0 .5em}
+h2{font-size:clamp(2rem,5vw,3rem)}
+p{margin:0 0 1em}
+a{color:var(--color-text)}
+:focus-visible{outline:3px solid var(--color-text);outline-offset:3px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip-link{position:absolute;left:1rem;top:-4rem;background:var(--color-text);color:var(--color-on-primary);padding:.6rem 1rem;z-index:100;border-radius:8px}
+.skip-link:focus{top:1rem}
+.container{width:min(1200px,92%);margin-inline:auto}
+.section{padding:5rem 0;scroll-margin-top:var(--header-h)}
+.section-alt{background:var(--color-bg-alt)}
+.section-sub{color:var(--color-text-soft);font-size:1.15rem}
+#accueil,#contact{scroll-margin-top:var(--header-h)}
+.btn{display:inline-block;font:700 1.05rem var(--font-body);padding:.9rem 1.8rem;border-radius:999px;text-decoration:none;border:2px solid var(--color-text);cursor:pointer;transition:transform .2s}
+.btn-primary{background:var(--color-text);color:var(--color-on-primary)}
+.btn:hover{transform:translateY(-2px)}
+.link-btn{background:none;border:0;color:var(--color-text);font:inherit;text-decoration:underline;cursor:pointer;padding:.5rem}
+
+/* ---------- 3. EN-TÊTE ---------- */
+.site-header{position:sticky;top:0;z-index:50;height:var(--header-h);display:flex;justify-content:space-between;align-items:center;padding:0 4%;background:var(--color-bg);border-bottom:2px solid var(--color-accent)}
+.nav-list{list-style:none;margin:0;padding:0;display:flex;gap:clamp(.8rem,3vw,2rem)}
+.nav-list a{text-decoration:none;font-weight:600;padding:.4rem .2rem;border-bottom:2px solid transparent}
+.nav-list a:hover{border-color:var(--color-text)}
+.lang-switch{display:flex;gap:.6rem}
+.lang-switch button{width:42px;height:30px;padding:2px;background:none;border:2px solid var(--color-border);border-radius:6px;cursor:pointer}
+.lang-switch button[aria-pressed="true"]{border-color:var(--color-text)}
+.lang-switch svg{width:100%;height:100%;border-radius:2px}
+
+/* ---------- 4. ACCUEIL ---------- */
+.hero{min-height:calc(100svh - var(--header-h));display:grid;place-items:center;text-align:center;padding:3rem 1rem;
+  background:linear-gradient(var(--color-overlay),var(--color-overlay)),var(--hero-image) center/cover no-repeat,#000}
+.hero h1{font-size:clamp(2.6rem,9vw,6rem);letter-spacing:.01em;margin-bottom:.2em}
+.hero-sub{font-size:clamp(1.15rem,3vw,1.6rem);color:var(--color-text-soft);margin-bottom:2rem}
+
+/* ---------- 5. PROJETS ---------- */
+.toolbar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;margin:2rem 0 1.5rem}
+.filters{display:flex;flex-wrap:wrap;gap:.6rem}
+.filters button{background:transparent;color:var(--color-text);border:2px solid var(--color-text);border-radius:999px;padding:.45rem 1.1rem;font:600 1rem var(--font-body);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--color-text);color:var(--color-on-primary)}
+.sort{display:flex;align-items:center;gap:.6rem}
+.sort select{background:var(--color-surface);color:var(--color-text);border:2px solid var(--color-text);border-radius:8px;padding:.5rem .8rem;font:inherit}
+
+.carousel{--visible:3;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:.5rem}
+.viewport{overflow:hidden;padding:1.6rem .9rem}
+.track{--i:0;display:flex;gap:var(--gap);transition:transform .5s ease;
+  transform:translateX(calc(-1 * var(--i) * (100% + var(--gap)) / var(--visible)))}
+.card{flex:0 0 calc((100% - (var(--visible) - 1) * var(--gap)) / var(--visible));position:relative;padding:0;border:2px solid var(--color-border);border-radius:var(--radius);overflow:hidden;background:var(--color-surface);cursor:pointer;aspect-ratio:16/9;transition:transform .3s ease}
+.card img{width:100%;height:100%;object-fit:cover}
+.card:hover,.card:focus-visible{transform:scale(1.08);z-index:2;border-color:var(--color-text)}
+.track:hover .card:not(:hover),.track:has(.card:focus-visible) .card:not(:focus-visible){transform:scale(.94)}
+.tip{position:absolute;left:.6rem;right:.6rem;bottom:.6rem;padding:.4rem .7rem;border-radius:8px;background:rgba(0,0,0,.88);color:var(--color-text);font:700 .95rem var(--font-body);text-align:left;opacity:0;transform:translateY(6px);transition:.25s}
+.card:hover .tip,.card:focus-visible .tip{opacity:1;transform:none}
+@media (hover:none){.tip{opacity:1;transform:none}}
+.arrow{width:48px;height:48px;border-radius:50%;background:transparent;border:2px solid var(--color-text);cursor:pointer;display:grid;place-items:center}
+.arrow svg{width:22px;fill:none;stroke:var(--color-text);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.arrow:hover:not(:disabled){background:var(--color-text)}
+.arrow:hover:not(:disabled) svg{stroke:var(--color-on-primary)}
+.arrow:disabled{opacity:.35;cursor:default}
+.dots{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem;margin-top:1rem}
+.dot{width:14px;height:14px;border-radius:50%;border:2px solid var(--color-muted);background:transparent;padding:0;cursor:pointer}
+.dot.on{background:var(--color-muted)}   /* projets actuellement affichés = grisés */
+.empty{text-align:center;color:var(--color-text-soft)}
+
+/* ---------- 6. FICHE PROJET (pop-up) ---------- */
+.modal{width:min(900px,94vw);max-height:92vh;padding:0;background:var(--color-surface);color:var(--color-text);border:2px solid var(--color-text);border-radius:var(--radius);overflow:auto}
+.modal::backdrop{background:rgba(0,0,0,.85)}
+.close{position:absolute;top:.6rem;right:.8rem;z-index:3;width:42px;height:42px;border-radius:50%;border:2px solid var(--color-text);background:var(--color-bg);color:var(--color-text);font-size:1.6rem;line-height:1;cursor:pointer}
+.video{aspect-ratio:16/9;background:#000}
+.video iframe,.video video{width:100%;height:100%;border:0}
+.modal-content{padding:1.8rem}
+.modal-content h3{font-size:clamp(1.7rem,4vw,2.4rem);font-weight:700;margin-bottom:.1em}
+.original{color:var(--color-text-soft);font-style:italic;margin-bottom:1rem}
+.pills{display:flex;flex-wrap:wrap;gap:.6rem;margin:0 0 1.2rem;padding:0;list-style:none}
+.pills li{border:2px solid var(--color-text);border-radius:999px;padding:.2rem .9rem;font-weight:600;font-size:.95rem}
+.modal-content p,.modal-content li{color:var(--color-text-soft)}
+.modal-content h4{font-size:1.2rem;margin-top:1.2rem}
+.modal-content .btn{margin-top:1rem}
+.modal-text h3{margin-top:1.4rem;font-size:1.3rem}
+
+/* ---------- 7. À PROPOS & CV ---------- */
+.about{display:grid;grid-template-columns:minmax(320px,220px) 1fr;gap:clamp(1.5rem,5vw,4rem);align-items:center;margin-bottom:4rem}
+.portrait{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:var(--radius);border:2px solid var(--color-text)}
+.about-text{color:var(--color-text-soft);max-width:60ch}
+.icons{list-style:none;display:flex;gap:1rem;padding:0;margin:1.5rem 0 0}
+.icons a{display:grid;place-items:center;width:52px;height:52px;border:2px solid var(--color-text);border-radius:50%}
+.icons a:hover{background:var(--color-text);color:var(--color-on-primary)}
+.icons svg{width:26px}
+
+/* CV « classeur » : onglets collés au panneau */
+.cv-tabs{display:flex;flex-wrap:wrap;gap:.4rem;padding-left:1rem}
+.cv-tabs button{background:transparent;color:var(--color-text);border:2px solid var(--color-text);border-bottom:0;border-radius:12px 12px 0 0;padding:.7rem 1.4rem;font:700 1.05rem var(--font-body);cursor:pointer}
+.cv-tabs button[aria-selected="true"]{background:var(--color-text);color:var(--color-on-primary)}
+.cv-panel{margin-top:-2px;background:var(--color-surface);border:2px solid var(--color-text);border-left:10px solid var(--color-accent);border-radius:var(--radius);padding:2rem clamp(1rem,4vw,2.5rem)}
+.timeline{list-style:none;margin:0;padding:0 0 0 1.8rem;border-left:3px solid var(--color-border)}
+.timeline li{position:relative;padding-bottom:1.6rem}
+.timeline li:last-child{padding-bottom:0}
+.timeline li::before{content:"";position:absolute;left:calc(-1.8rem - 9px);top:.45rem;width:15px;height:15px;border-radius:50%;background:var(--color-text);border:3px solid var(--color-surface)}
+.tl-date{font-weight:700}
+.timeline h4{margin:.1rem 0}
+.timeline p{margin:0;color:var(--color-text-soft)}
+.tl-links{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;margin-top:.3rem}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
+.skill{border:2px solid var(--color-border);border-radius:12px;padding:1.1rem}
+.skill h4{margin-bottom:.3rem}
+.skill p{margin:0;color:var(--color-text-soft)}
+
+/* ---------- 8. PIED DE PAGE & RESPONSIVE ---------- */
+.site-footer{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:1.5rem;padding:3rem 1rem;border-top:2px solid var(--color-accent)}
+@media (max-width:900px){.carousel{--visible:2}}
+@media (max-width:700px){
+  .about{grid-template-columns:1fr}.portrait{max-width:300px;margin-inline:auto}
+  .site-header{padding:0 3%}.nav-list{gap:.6rem}.nav-list a{font-size:.9rem}
+}
+@media (max-width:600px){
+  .carousel{--visible:1;grid-template-columns:minmax(0,1fr);}
+  .carousel .arrow{display:none}   /* mobile : glisser du doigt ou utiliser les points */
+  .toolbar{flex-direction:column;align-items:flex-start}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
