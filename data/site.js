@@ -61,7 +61,7 @@ const I18N = {
     go_to: "Aller au projet", showing: "Projets affichés", of: "sur", no_result: "Aucun projet dans cette catégorie.",
     role: "Mon rôle", more: "Voir plus", close: "Fermer",
     about_title: "À propos de moi",
-    about_text: "Quand j'avais 12 ans, mes amis et moi avions créer une série de vidéo appelée "Super Job", dans laquelle nous nous mettions en scène dans un enchainement de sketch. Une dizaine d'année plus tard, je peux passer des heures devant ma timeline Premiere Pro ou à brainstormer des idées (et j'ai appris à faire le backup de mes rushs—adieu Super Job…). Basée en Île-de-France.",
+    about_text: "Quand j'avais 12 ans, mes amis et moi avions créer une série de vidéo appelée Super Job, dans laquelle nous nous mettions en scène dans un enchainement de sketch. Une dizaine d'année plus tard, je peux passer des heures devant ma timeline Premiere Pro ou à brainstormer des idées (et j'ai appris à faire le backup de mes rushs—adieu Super Job…). Basée en Île-de-France.",
     mail: "M'écrire un e-mail", linkedin: "Mon profil LinkedIn", portrait_alt: "Portrait",
     cv_label: "Mon CV", cv_experience: "Expériences", cv_education: "Éducation", cv_skills: "Compétences", date_sep: "à",
     footer_contact: "Me contacter", legal: "Mentions légales", legal_title: "Mentions légales"
