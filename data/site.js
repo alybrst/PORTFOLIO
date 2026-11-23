@@ -61,7 +61,7 @@ const I18N = {
     go_to: "Aller au projet", showing: "Projets affichés", of: "sur", no_result: "Aucun projet dans cette catégorie.",
     role: "Mon rôle", more: "Voir plus", close: "Fermer",
     about_title: "À propos de moi",
-    about_text: "Passionnée par le documentaire et la fiction, formée entre la France et la Corée du Sud. J'aime construire des récits dès le tournage et leur donner leur rythme au montage.",
+    about_text: "Quand j'avais 12 ans, mes amis et moi avions créer une série de vidéo appelée "Super Job", dans laquelle nous nous mettions en scène dans un enchainement de sketch. Une dizaine d'année plus tard, je peux passer des heures devant ma timeline Premiere Pro ou à brainstormer des idées (et j'ai appris à faire le backup de mes rushs—adieu Super Job…). Basée en Île-de-France.",
     mail: "M'écrire un e-mail", linkedin: "Mon profil LinkedIn", portrait_alt: "Portrait",
     cv_label: "Mon CV", cv_experience: "Expériences", cv_education: "Éducation", cv_skills: "Compétences", date_sep: "à",
     footer_contact: "Me contacter", legal: "Mentions légales", legal_title: "Mentions légales"
@@ -78,7 +78,7 @@ const I18N = {
     go_to: "Go to project", showing: "Projects shown", of: "of", no_result: "No project in this category.",
     role: "My role", more: "Learn more", close: "Close",
     about_title: "About me",
-    about_text: "Passionate about documentary and fiction, trained between France and South Korea. I like building stories from the shoot and giving them their rhythm in the edit.",
+    about_text: "When I was 12, my friends and I created a video series called Super Job, in which we starred in a series of sketches. About ten years later, I can spend hours on my Premiere Pro timeline or brainstorming ideas (and I’ve learned to back up my footage—goodbye, Super Job…). Based in Île-de-France.",
     mail: "Send me an email", linkedin: "My LinkedIn profile", portrait_alt: "Portrait",
     cv_label: "My CV", cv_experience: "Experience", cv_education: "Education", cv_skills: "Skills", date_sep: "to",
     footer_contact: "Contact me", legal: "Legal notice", legal_title: "Legal notice"
